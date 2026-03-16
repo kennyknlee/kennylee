@@ -381,8 +381,20 @@
         // 生成並下載 vCard (儲存通訊錄) 邏輯
         // -----------------------------------------
         function downloadVCard() {
-            // VCF 格式的電子名片內容 (已更新)
-            const vcardData = `BEGIN:VCARD VERSION:3.0 N:Lee;Kenny;;; FN:Kenny Lee TITLE:CFP® 認可理財策劃師 ORG:Kenny Lee 理財有道 TEL;TYPE=CELL:+85256001016 EMAIL:kenny.kn.lee@hotmail.com URL:https://www.kennylee.one NOTE:專注整全家庭理財策劃與企業保險管理。END:VCARD`;
+            // VCF 格式的電子名片內容 (已修復換行問題)
+            // 每一行結尾必須有 \n，確保手機和電腦能正確解析
+            const vcardData = 
+                "BEGIN:VCARD\n" +
+                "VERSION:3.0\n" +
+                "N:Lee;Kenny;;;\n" +
+                "FN:Kenny Lee\n" +
+                "TITLE:CFP® 認可理財策劃師\n" +
+                "ORG:Kenny Lee 理財有道\n" +
+                "TEL;TYPE=CELL:+85256001016\n" +
+                "EMAIL:kenny.kn.lee@hotmail.com\n" +
+                "URL:https://www.kennylee.one\n" +
+                "NOTE:專注整全家庭理財策劃與企業保險管理。\n" +
+                "END:VCARD";
 
             const blob = new Blob([vcardData], { type: 'text/vcard;charset=utf-8;' });
             const url = URL.createObjectURL(blob);
@@ -393,6 +405,7 @@
             link.click();
             document.body.removeChild(link);
         }
+    
 
         // -----------------------------------------
         // 留言板與燈箱邏輯
