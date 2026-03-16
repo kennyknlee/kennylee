@@ -26,7 +26,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            /* 修正高度，以適應放大的橫向 Logo */
             height: 100px; 
             background-color: #ffffff;
             box-shadow: 0 2px 15px rgba(0,0,0,0.08);
@@ -43,18 +42,15 @@
             justify-content: space-between;
             align-items: center;
         }
-        /* 修正 Header Logo 大小：替換為新的橫向去背 Logo 並且放大 30% */
+        .header-logo {
+            margin-left: 0%; 
+        }
         .header-logo img {
-            /* 原來的 55px * 1.3 = 71.5px (約 72px) */
             max-height: 150px; 
             width: auto;
             display: block;
         }
-                /* 新增這段來控制 Logo 的左右位置 */
-        .header-logo {
-            margin-left: 0%; /* 👈 把這個數字調大，Logo 就會往右移；調成 0 則貼齊原本的邊緣 */
-        }
-
+        
         .main-nav {
             flex: 1;
             display: flex;
@@ -99,9 +95,7 @@
         .tag:hover { background: rgba(255, 255, 255, 0.25); transform: translateY(-2px); }
         .tag.highlight { border-left: 3px solid #f2a900; background: rgba(242, 169, 0, 0.15); }
 
-        /* =========================================
-           修正第二屏：動態客戶回饋牆 (移至此處，背景純白)
-           ========================================= */
+        /* 第二屏：動態客戶回饋牆 */
         #testimonials { padding: 80px 0; background-color: #fff; position: relative; }
         .testimonial-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 20px; padding-bottom: 20px; -webkit-overflow-scrolling: touch; }
         .testimonial-slider::-webkit-scrollbar { height: 8px; }
@@ -116,43 +110,12 @@
         .has-reply-tag { font-size: 0.8rem; background-color: #f0f7ff; color: #1a4a7e; padding: 4px 8px; border-radius: 4px; align-self: flex-start; margin-top: -5px; margin-bottom: 10px; }
         .swipe-hint { width: 100%; text-align: center; font-size: 0.9rem; color: #888; margin-top: 10px; display: none; }
 
-        /* =========================================
-           修正：留言輸入放在最底的樣式
-           ========================================= */
-        .custom-comment-section {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            border: 1px solid #e1e8ed;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #0d2b4d; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; transition: border-color 0.3s; }
-        .form-group input:focus, .form-group textarea:focus { border-color: #1a4a7e; outline: none; }
-        .submit-btn { width: 100%; background-color: #0d2b4d; color: #fff; padding: 15px; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
-        .submit-btn:hover { background-color: #1a4a7e; }
-        .submit-btn:disabled { background-color: #ccc; cursor: not-allowed; }
-        #form-message { display: none; text-align: center; margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 5px; }
-        .msg-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .msg-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-
-        /* 星星評分輸入樣式 */
-        .star-rating-input { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; }
-        .star-rating-input input { display: none; }
-        .star-rating-input label { font-size: 2rem; color: #ccc; cursor: pointer; transition: color 0.2s; padding-right: 5px; }
-        .star-rating-input input:checked ~ label, .star-rating-input label:hover, .star-rating-input label:hover ~ label { color: #f2a900; }
-
-        /* 第三屏：關於 Kenny (移至此處，背景純白) */
+        /* 第三屏：關於 Kenny */
         #about { padding: 80px 0; background-color: #fff; }
         .about-wrap { display: flex; align-items: center; gap: 60px; }
         .about-content { flex: 1; }
         .about-content h2 { font-size: 2rem; color: #0d2b4d; margin-bottom: 20px; }
         .about-content p { margin-bottom: 15px; font-size: 1.1rem; color: #555; }
-
-        /* 三圖立體拼貼畫廊與放大特效 */
         .about-image-group { flex: 1; position: relative; padding-right: 40px; padding-bottom: 50px; padding-top: 20px; }
         .about-img { border-radius: 12px; border: 5px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,0.15); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), z-index 0s, box-shadow 0.4s; cursor: pointer; }
         .about-image-group img:hover { transform: scale(1.15) translateY(-10px) !important; z-index: 10 !important; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
@@ -160,7 +123,7 @@
         .img-mdrt { position: absolute; top: -10px; right: 0; width: 48%; z-index: 2; transform: rotate(3deg); }
         .img-award { position: absolute; bottom: 0; right: 15%; width: 42%; z-index: 3; transform: rotate(-4deg); }
 
-        /* 第四屏：核心服務方案 (移至此處，背景淺灰) */
+        /* 第四屏：核心服務方案 */
         #services { padding: 80px 0; background-color: #f8f9fa; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
         .service-card { background: #fff; padding: 40px 30px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s ease; }
@@ -186,6 +149,24 @@
         #cta p { font-size: 1.2rem; margin-bottom: 40px; color: #d1e2f3; }
         .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
 
+        /* 留言輸入表單樣式 (最底) */
+        .custom-comment-section { max-width: 600px; margin: 0 auto; background: #ffffff; padding: 40px; border-radius: 10px; border: 1px solid #e1e8ed; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #0d2b4d; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; transition: border-color 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #1a4a7e; outline: none; }
+        .submit-btn { width: 100%; background-color: #0d2b4d; color: #fff; padding: 15px; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        .submit-btn:hover { background-color: #1a4a7e; }
+        .submit-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+        #form-message { display: none; text-align: center; margin-top: 15px; font-weight: bold; padding: 10px; border-radius: 5px; }
+        .msg-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .msg-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        
+        .star-rating-input { display: inline-flex; flex-direction: row-reverse; justify-content: flex-end; }
+        .star-rating-input input { display: none; }
+        .star-rating-input label { font-size: 2rem; color: #ccc; cursor: pointer; transition: color 0.2s; padding-right: 5px; }
+        .star-rating-input input:checked ~ label, .star-rating-input label:hover, .star-rating-input label:hover ~ label { color: #f2a900; }
+
         /* 頁尾 Footer */
         footer { background: #ffffff; color: #555; text-align: center; padding: 50px 0 30px; font-size: 0.9rem; border-top: 1px solid #eaeaea; }
         .contact-links { margin-bottom: 25px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; align-items: center; }
@@ -193,6 +174,36 @@
         .contact-links a:hover { color: #f2a900; background-color: #f9fbfd; transform: translateY(-2px); }
         .btn-vcard { background-color: #1a4a7e; color: #fff; padding: 12px 25px; border: none; border-radius: 30px; font-size: 1.05rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(26, 74, 126, 0.2); display: inline-flex; align-items: center; gap: 8px; }
         .btn-vcard:hover { background-color: #0d2b4d; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(13, 43, 77, 0.3); }
+
+        /* =========================================
+           回到最頂按鈕樣式
+           ========================================= */
+        #scrollTopBtn {
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 9999;
+            border: none;
+            outline: none;
+            background-color: #0d2b4d; 
+            color: white;
+            cursor: pointer;
+            padding: 12px;
+            border-radius: 50%; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, transform 0.3s, opacity 0.3s, visibility 0.3s;
+        }
+        #scrollTopBtn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scrollTopBtn:hover {
+            background-color: #f2a900; 
+            transform: translateY(-5px); 
+            box-shadow: 0 6px 20px rgba(242, 169, 0, 0.4);
+        }
 
         /* 響應式設計 (Mobile) */
         @media (max-width: 768px) {
@@ -210,6 +221,7 @@
             .swipe-hint { display: block; }
             .custom-comment-section { padding: 25px; }
             .contact-links { flex-direction: column; gap: 10px; }
+            #scrollTopBtn { bottom: 20px; right: 20px; padding: 10px; }
         }
     </style>
 </head>
@@ -221,8 +233,7 @@
                 <img src="Kenny Lee Logo 2nd_V2_transparent.png" alt="Kenny Lee 理財有道 Logo">
             </a>
             
-            <nav class="main-nav">
-                </nav>
+            <nav class="main-nav"></nav>
 
             <a href="https://wa.me/85256001016" target="_blank" class="header-whatsapp-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -318,19 +329,19 @@
                     <div class="service-icon">🛡️</div>
                     <h3>無憂醫療與大病保障</h3>
                     <p>擺脫舊式醫保細項限制。為您規劃「全數索償」的高端醫療方案以及 危疾「現金」保障，確保在大型醫療事件發生時，可以找全世界最好的醫療系統之餘，亦幫您預備現金保障支票，確保家庭財務不受衝擊。</p>
-                    <a href="javascript:void(0);" onclick="openServiceModal('Medical VS CI 3 with logo.png')" class="service-link">👉了解無憂醫療與大病保障方案 ➔</a>
+                    <a href="javascript:void(0);" onclick="openServiceModal('Medical VS CI 3 with logo.png')" class="service-link">了解無憂醫療與大病保障方案 ➔</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📈</div>
                     <h3>保費融資與財富倍增</h3>
                     <p>善用「四兩撥千斤」的財技攻略。為您策劃保費融資方案，利用低息環境與銀行資金，倍增您的資產回報與被動收入。</p>
-                    <a href="javascript:void(0);" onclick="openServiceModal('Premium Financing with logo_CHI.png')" class="service-link">👉探索財富倍增策略 ➔</a>
+                    <a href="javascript:void(0);" onclick="openServiceModal('Premium Financing with logo_CHI.png')" class="service-link">探索財富倍增策略 ➔</a>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🌳</div>
                     <h3>退休規劃與財富傳承</h3>
                     <p>為您精算退休缺口與教育基金，並透過保單架構建立專屬的家族財富傳承機制，讓愛與財富代代相傳。</p>
-                    <a href="javascript:void(0);" onclick="openServiceModal('Legacy planning with logo_CHI.png')" class="service-link">👉開始規劃傳承藍圖 ➔</a>
+                    <a href="javascript:void(0);" onclick="openServiceModal('Legacy planning with logo_CHI.png')" class="service-link">開始規劃傳承藍圖 ➔</a>
                 </div>
             </div>
         </div>
@@ -418,7 +429,7 @@
                 </button>
             </div>
 
-            <p>&copy; 2026 Kenny Lee 理財有道 | 版權所有，不得轉載。</p>
+            <p>&copy; 2026 Kenny Lee 理財有道. All rights reserved. 版權所有，不得轉載。</p>
             <p><small>免責聲明：本網站內容僅為個人觀點與理財知識分享，非業務推廣或直接投資建議。個別產品請參閱相關保險公司之正式條款。</small></p>
         </div>
     </footer>
@@ -434,9 +445,8 @@
             });
         }
 
-        // 生成並下載 vCard 邏輯 (已修復換行)
+        // 生成並下載 vCard 邏輯
         function downloadVCard() {
-            // VCF 電子名片內容已更新為：CFP® 認可理財策劃師 / Kenny Lee 理財有道 / www.kennylee.one
             const vcardData = 
                 "BEGIN:VCARD\n" +
                 "VERSION:3.0\n" +
@@ -558,6 +568,26 @@
         // 初始化
         loadComments();
 
+        // -----------------------------------------
+        // 回到最頂按鈕 (Scroll to Top) 邏輯 - 修復版
+        // -----------------------------------------
+        let scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' 
+            });
+        }
+
         // 處理留言表單送出
         const form = document.forms['comment-form'];
         const submitBtn = document.getElementById('submit-btn');
@@ -594,5 +624,11 @@
             })
         })
     </script>
+    
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="回到最頂端">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+    </button>
 </body>
 </html>
